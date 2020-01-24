@@ -12,7 +12,7 @@ https://huggingface.co/transformers/_modules/transformers/optimization.html#Adam
 Something like
 
 ```
-def fit_fc(optimizer, n_steps, pct_flat=0.72, num_cycles=0.5, last_epoch=-1):
+def fit_fc(optimizer, n_steps, pct_flat=0.72, num_cycles=0.5, last_epoch=-1): # for RAdam/Ranger
     """ Create a schedule with a learning rate that decreases following the
     values of the cosine function between 0 and `pi * cycles` after a warmup
     period during which it increases linearly between 0 and 1.
