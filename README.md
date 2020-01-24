@@ -11,6 +11,8 @@ https://huggingface.co/transformers/_modules/transformers/optimization.html#Adam
 - uses number of steps so need to adjust for n_epochs
 Something like
 
+### Saving best model
+https://discuss.pytorch.org/t/how-to-save-a-model-from-a-previous-epoch/20252/4
 
 ### Training loop
 ```
