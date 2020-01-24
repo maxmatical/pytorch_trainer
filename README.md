@@ -12,14 +12,14 @@ https://huggingface.co/transformers/_modules/transformers/optimization.html#Adam
 Something like
 
 ```
-def fit_fc(optimizer, n_steps, pct_flat=0.72, num_cycles=0.5, last_epoch=-1): # for RAdam/Ranger
+def fit_fc(optimizer, num_training_steps, pct_flat=0.72, num_cycles=0.5, last_epoch=-1): # for RAdam/Ranger
     """ Create a schedule with a learning rate that decreases following the
     values of the cosine function between 0 and `pi * cycles` after a warmup
     period during which it increases linearly between 0 and 1.
     """
-
+    num_warmup_steps = math.round(num_training_steps*pct_flat)
     def lr_lambda(current_step):
-        if current_step <= n_steps*pct_flat:
+        if current_step < num_warmup_steps:
             return 1.0
         progress = float(current_step - num_warmup_steps) / float(max(1, num_training_steps - num_warmup_steps))
         return max(0.0, 0.5 * (1.0 + math.cos(math.pi * float(num_cycles) * 2.0 * progress)))
