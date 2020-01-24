@@ -15,6 +15,14 @@ Something like
 https://discuss.pytorch.org/t/how-to-save-a-model-from-a-previous-epoch/20252/4
 
 ### Training loop
+TODO:
+1. LR Scheduler (flat cosine, one_cycle)
+2. FP16
+3. Distributed training
+4. Optimizer
+5. Save best model
+6. Print training status
+7. LRFinder
 ```
 def fit_fc(optimizer, num_training_steps, pct_flat=0.72, num_cycles=0.5, last_epoch=-1): # for RAdam/Ranger
     """ Create a schedule with a learning rate that decreases following the
